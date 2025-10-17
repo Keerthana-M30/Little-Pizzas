@@ -8,7 +8,7 @@ import { MenuCategorySection } from "@/components/MenuCategory";
 import { MENU_CATEGORIES } from "@/menuData";
 
 // Shop owner's WhatsApp number (with country code, without '+')
-const SHOP_OWNER_PHONE = "8098511211";
+const SHOP_OWNER_PHONE = "918098511211";
 
 const Index = () => {
   const [order, setOrder] = useState<Record<string, number>>({});
