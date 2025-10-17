@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Updated color palette with bright yellow, leafy green, and black */
+    --background: 0 0% 100%; /* Pure white background */
+    --foreground: 0 0% 0%; /* Pure black text */
+
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 0 0% 0%; /* Black card text */
+
+    --popover: 0 0% 100%; /* White popover */
+    --popover-foreground: 0 0% 0%; /* Black popover text */
+
+    /* Bright Yellow as Primary Color */
+    --primary: 45 100% 50%; /* Bright yellow */
+    --primary-foreground: 0 0% 0%; /* Black text on yellow */
+
+    /* Dark Leafy Green as Secondary Color */
+    --secondary: 120 40% 20%; /* Dark leafy green */
+    --secondary-foreground: 0 0% 100%; /* White text on green */
+
+    --muted: 0 0% 90%; /* Light gray for muted elements */
+    --muted-foreground: 0 0% 40%; /* Dark gray text */
+
+    --accent: 45 100% 90%; /* Light yellow accent */
+    --accent-foreground: 0 0% 0%; /* Black text on light yellow */
+
+    --destructive: 0 84.2% 60.2%; /* Red for destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White text on red */
+
+    --border: 0 0% 85%; /* Light gray border */
+    --input: 0 0% 85%; /* Light gray input borders */
+    --ring: 45 100% 50%; /* Bright yellow ring */
+
+    --radius: 0.75rem;
+
+    /* Enhanced shadows for depth */
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-elevated: 0 12px 30px rgba(0, 0, 0, 0.15);
+    --shadow-glow: 0 0 20px rgba(255, 217, 0, 0.5); /* Yellow glow effect */
+
+    /* Enhanced transitions and animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-spring: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-primary: 45 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 45 100% 95%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 45 100% 50%;
+  }
+
+  .dark {
+    /* Dark mode with the same vibrant colors */
+    --background: 0 0% 5%; /* Very dark background */
+    --foreground: 0 0% 100%; /* White text */
+
+    --card: 0 0% 10%; /* Dark cards */
+    --card-foreground: 0 0% 100%; /* White card text */
+
+    --popover: 0 0% 10%; /* Dark popover */
+    --popover-foreground: 0 0% 100%; /* White popover text */
+
+    /* Bright Yellow as Primary Color (same in dark mode) */
+    --primary: 45 100% 50%; /* Bright yellow */
+    --primary-foreground: 0 0% 0%; /* Black text on yellow */
+
+    /* Dark Leafy Green as Secondary Color (brighter in dark mode) */
+    --secondary: 120 45% 30%; /* Brighter dark leafy green */
+    --secondary-foreground: 0 0% 100%; /* White text on green */
+
+    --muted: 0 0% 20%; /* Darker gray for muted elements */
+    --muted-foreground: 0 0% 70%; /* Lighter gray text */
+
+    --accent: 45 100% 20%; /* Dark yellow accent */
+    --accent-foreground: 0 0% 100%; /* White text on dark yellow */
+
+    --destructive: 0 84.2% 60.2%; /* Red for destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White text on red */
+
+    --border: 0 0% 20%; /* Darker border */
+    --input: 0 0% 20%; /* Darker input borders */
+    --ring: 45 100% 50%; /* Bright yellow ring */
+
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-elevated: 0 12px 30px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 20px rgba(255, 217, 0, 0.3); /* Dimmer yellow glow in dark mode */
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 45 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 45 100% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 45 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      sans-serif;
+    /* Add subtle texture to background */
+    background-image: radial-gradient(#00000010 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+@layer utilities {
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+
+  /* Custom animations */
+  .animate-pulse-slow {
+    animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s infinite;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+}
+
+/* Custom keyframes for animations */
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes bounce-subtle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Gamification elements */
+.badge-gamified {
+  position: relative;
+  overflow: hidden;
+}
+
+.badge-gamified::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%
+  );
+  background-size: 20px 20px;
+  transform: rotate(30deg);
+  animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+  0% {
+    transform: rotate(30deg) translateX(-100%);
+  }
+  100% {
+    transform: rotate(30deg) translateX(100%);
+  }
+}
