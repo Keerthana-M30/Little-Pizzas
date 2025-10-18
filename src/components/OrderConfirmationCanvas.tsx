@@ -138,13 +138,13 @@ export const OrderConfirmationCanvas = ({
               htmlFor="customer-name"
               className="block text-sm font-medium text-foreground mb-2"
             >
-              Your Name
+              <strong>🔔Name required for Ordering*</strong>
             </label>
             <Input
               id="customer-name"
               value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
-              placeholder="Enter your name"
+              placeholder="Enter your name📢"
               className="w-full"
             />
             {/* Extras info line */}
